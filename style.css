@@ -1,0 +1,368 @@
+/* ============================= */
+/* IMPORTAÇÃO DA FONTE */
+/* ============================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ============================= */
+/* RESET */
+/* ============================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ============================= */
+/* BODY */
+/* ============================= */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    padding:30px;
+
+    overflow-x:hidden;
+
+    overflow-y:auto;
+
+    position:relative;
+
+    color:white;
+
+    background:
+    radial-gradient(circle at top,#1e3c72 0%,#101522 35%,#050505 100%);
+
+}
+
+/* ============================= */
+/* LUZES DE FUNDO */
+/* ============================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:900px;
+    height:900px;
+
+    background:#00ffe5;
+
+    border-radius:50%;
+
+    filter:blur(250px);
+
+    opacity:.18;
+
+    top:-350px;
+    left:-250px;
+
+    animation:luz1 10s infinite alternate;
+
+    z-index:-2;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:700px;
+    height:700px;
+
+    background:#6d28ff;
+
+    border-radius:50%;
+
+    filter:blur(220px);
+
+    opacity:.18;
+
+    bottom:-250px;
+    right:-250px;
+
+    animation:luz2 10s infinite alternate;
+
+    z-index:-2;
+
+}
+
+@keyframes luz1{
+
+    from{
+        transform:translateX(0px);
+    }
+
+    to{
+        transform:translateX(120px);
+    }
+
+}
+
+@keyframes luz2{
+
+    from{
+        transform:translateY(0px);
+    }
+
+    to{
+        transform:translateY(-120px);
+    }
+
+}
+
+/* ============================= */
+/* TÍTULO */
+/* ============================= */
+
+h1{
+
+    font-size:48px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    text-shadow:
+
+    0 0 10px #00ffe5,
+
+    0 0 25px #00ffe5,
+
+    0 0 45px #00ffe5;
+
+}
+
+/* ============================= */
+/* BOTÃO */
+/* ============================= */
+
+button{
+
+    width:280px;
+
+    height:65px;
+
+    margin-bottom:20px;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:white;
+
+    background:linear-gradient(135deg,#00ffe5,#0077ff);
+
+    transition:.3s;
+
+    box-shadow:
+
+    0 10px 35px rgba(0,255,255,.35);
+
+}
+
+button:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:
+
+    0 20px 45px rgba(0,255,255,.45);
+
+}
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+/* ============================= */
+/* STATUS */
+/* ============================= */
+
+#status,
+#comando{
+
+    width:500px;
+
+    max-width:90vw;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.30);
+
+}
+
+/* ============================= */
+/* CANVAS */
+/* ============================= */
+
+canvas{
+
+    margin-top:25px;
+
+    width:500px;
+
+    height:500px;
+
+    max-width:90vw;
+
+    aspect-ratio:1;
+
+    background:linear-gradient(180deg,#07151b,#000);
+
+    border-radius:25px;
+
+    border:3px solid #00ffe5;
+
+    box-shadow:
+
+    0 0 35px rgba(0,255,255,.40),
+
+    inset 0 0 30px rgba(0,255,255,.10),
+
+    0 0 100px rgba(0,255,255,.20);
+
+    transition:.3s;
+
+}
+
+canvas:hover{
+
+    transform:scale(1.01);
+
+}
+
+/* ============================= */
+/* TEXTO */
+/* ============================= */
+
+p{
+
+    letter-spacing:1px;
+
+}
+
+/* ============================= */
+/* ANIMAÇÃO */
+/* ============================= */
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+h1,
+button,
+canvas,
+#status,
+#comando{
+
+    animation:aparecer .8s ease;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ============================= */
+/* RESPONSIVO */
+/* ============================= */
+
+@media(max-width:700px){
+
+    h1{
+
+        font-size:34px;
+
+    }
+
+    button{
+
+        width:90vw;
+
+    }
+
+    #status,
+    #comando{
+
+        width:90vw;
+
+    }
+
+    canvas{
+
+        width:90vw;
+
+        height:90vw;
+
+    }
+
+}
